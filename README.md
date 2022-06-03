@@ -29,3 +29,8 @@ All commands must be transmitted according to the BSL protocol shown below:
 Then, after performing the desired memory accesses, set the target to normal mode operation again, exiting BSL mode:
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/NormalModeInvocation.png" width="80%" height="80%"></p>
+
+All tests and validations were performed with the following circuit:
+
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png" width="100%" height="100%"></p>
+
