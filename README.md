@@ -32,5 +32,7 @@ Then, after performing the desired memory accesses, set the target to normal mod
 
 All tests and validations were performed with the following circuit:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png" width="100%" height="100%"></p>
+<p align="center"><a href="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/0.%20Project/DrizzlingBytes/DrizzlingBytes.pdf"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png" width="100%" height="100%" title="Watch the video" alt="Watch the video"></a></p>
+
+<p align="center"><img src="" width="100%" height="100%"></p>
 
