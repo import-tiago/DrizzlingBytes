@@ -1,4 +1,4 @@
-# DrizzlingBytes
+# DrizzlingBytes ---------- (WIP)
 
 DrizzlingBytes is a way to provide over-the-air (OTA) device firmware update (DFU) for MSP430-based systems.
 
@@ -7,3 +7,5 @@ In this implementation, an ESP32 (SoC) acts as a Host Device, managing and downl
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Overview.png" width="70%" height="70%"></p>
 
 Access to the target's embedded memory is done through the bootstrap loader (BSL), sometimes just called the "bootloader", available natively on MSP430 microcontrollers.
+
+The MSP430 bootstrap loader does not start automatically; a special sequence is required on the RST/NMI and TEST pins (TCK is used on devices with no dedicated TEST pin).
