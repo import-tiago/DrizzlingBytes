@@ -70,8 +70,9 @@ Once the circuit is powered up, the ESP32 downloads the firmware from Firebase a
 
 If all goes well, the communication between HOST and TARGET can be seen through the UART:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/UARTCommunicationData.png" ></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/ESP32_Tx.pngg" ></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/ESP32_Rx.pngg" ></p>
 
 The assembled circuit used for the tests:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/UARTCommunicationData.png" ></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Breadboard.png" ></p>
