@@ -63,3 +63,15 @@ void main(void) {
 The version that makes the LED blink slowly was flashed to the MCU and the version that makes it blink faster was uploaded in Firebase Storage. That way, if the ESP32 is able to successfully download and update the target, it will be easily noticeable by the blinky frequency of the LED.
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/FirebaseStorage.png" ></p>
+
+Once the circuit is powered up, the ESP32 downloads the firmware from Firebase and starts the MSP430 programming process. The result of the BSL invocation as well as the periods of each pulse can be seen below:
+
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLInvocationSignals.png" ></p>
+
+If all goes well, the communication between HOST and TARGET can be seen through the UART:
+
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/UARTCommunicationData.png" ></p>
+
+The assembled circuit used for the tests:
+
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/UARTCommunicationData.png" ></p>
