@@ -5179,12 +5179,10 @@ Matte Tin (Sn) Plating, 2 Circuits</description>
 <text x="158.115" y="49.53" size="1.27" layer="200" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <text x="175.26" y="91.44" size="1.27" layer="200" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <text x="175.26" y="93.98" size="1.27" layer="200" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
-<text x="129.54" y="41.656" size="2.54" layer="137" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
-<text x="131.2926" y="41.4528" size="1.4224" layer="137" font="vector" ratio="15" align="center-left" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">Strapping pins: 3.3 chapter from datasheet v1.3</text>
+<text x="194.1576" y="18.5928" size="1.6764" layer="137" font="vector" ratio="9" align="bottom-right" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">* Strapping pins: 3.3 chapter from datasheet v1.3</text>
 <text x="173.99" y="62.23" size="1.4224" layer="140" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <text x="173.99" y="54.61" size="1.4224" layer="140" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
-<text x="129.54" y="44.45" size="2.54" layer="140" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
-<text x="131.2926" y="44.2468" size="1.4224" layer="140" font="vector" ratio="15" align="center-left" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">Only input: 3.2 chapter from datasheet v1.3</text>
+<text x="194.1576" y="22.0218" size="1.6764" layer="140" font="vector" ratio="9" align="bottom-right" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">* Only input: 3.2 chapter from datasheet v1.3</text>
 <text x="173.99" y="59.69" size="1.4224" layer="140" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <text x="173.99" y="57.15" size="1.4224" layer="140" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <text x="159.385" y="54.61" size="1.27" layer="200" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
@@ -5207,11 +5205,10 @@ Matte Tin (Sn) Plating, 2 Circuits</description>
 <wire x1="180.975" y1="76.2" x2="153.035" y2="76.2" width="0.1016" layer="135" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <wire x1="153.035" y1="76.2" x2="153.035" y2="81.28" width="0.1016" layer="135" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <text x="155.575" y="82.55" size="1.27" layer="135" font="vector" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">UARTs</text>
-<text x="172.085" y="54.61" size="1.4224" layer="139" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
-<text x="172.085" y="57.15" size="1.4224" layer="139" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
-<text x="131.2926" y="39.1668" size="1.4224" layer="139" font="vector" ratio="15" align="top-left" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">Built-in hall effect sensor: 29.4 chapter from
+<text x="172.085" y="54.61" size="1.4224" layer="142" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
+<text x="172.085" y="57.15" size="1.4224" layer="142" font="vector" ratio="15" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
+<text x="194.1576" y="12.4968" size="1.6764" layer="142" font="vector" ratio="9" align="bottom-right" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">* Built-in hall effect sensor: 29.4 chapter from
 Technical Reference Manual v4.6</text>
-<text x="129.54" y="38.735" size="2.54" layer="139" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <text x="175.26" y="88.9" size="1.27" layer="200" font="vector" ratio="20" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">*</text>
 <wire x1="106.045" y1="216.535" x2="138.43" y2="216.535" width="0.1524" layer="137" style="shortdash" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE"/>
 <wire x1="138.43" y1="216.535" x2="138.43" y2="176.53" width="0.1524" layer="137" style="shortdash" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE"/>
@@ -5219,10 +5216,10 @@ Technical Reference Manual v4.6</text>
 <wire x1="106.045" y1="176.53" x2="106.045" y2="216.535" width="0.1524" layer="137" style="shortdash" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE"/>
 <text x="125.73" y="213.36" size="1.27" layer="137" align="center" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE">USB Self-Powered mode with
 internal 3.3V LDO bypassed</text>
-<wire x1="43.18" y1="76.835" x2="124.46" y2="76.835" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="124.46" y1="76.835" x2="124.46" y2="12.065" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="43.18" y1="12.065" x2="43.18" y2="76.835" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<text x="81.28" y="78.74" size="2.54" layer="137" font="vector" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">Serial Bootloader Programmer Interface</text>
+<wire x1="43.18" y1="86.995" x2="124.46" y2="86.995" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="124.46" y1="86.995" x2="124.46" y2="12.065" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="43.18" y1="12.065" x2="43.18" y2="86.995" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<text x="81.28" y="88.9" size="2.54" layer="137" font="vector" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">Serial Bootloader Programmer Interface</text>
 <wire x1="43.18" y1="12.065" x2="124.46" y2="12.065" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <wire x1="173.355" y1="87.63" x2="180.975" y2="87.63" width="0.1016" layer="135" style="shortdash"/>
 <wire x1="180.975" y1="87.63" x2="180.975" y2="82.55" width="0.1016" layer="135" style="shortdash"/>
@@ -5652,8 +5649,8 @@ internal 3.3V LDO bypassed</text>
 </net>
 <net name="USB_TX" class="0">
 <segment>
-<label x="144.145" y="77.47" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="144.145" y1="77.47" x2="149.225" y2="77.47" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="59.055" y="77.47" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="59.055" y1="77.47" x2="149.225" y2="77.47" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="SOC1" gate="G$1" pin="IO3(RXD0)"/>
 </segment>
 <segment>
@@ -5664,8 +5661,8 @@ internal 3.3V LDO bypassed</text>
 </net>
 <net name="USB_RX" class="0">
 <segment>
-<label x="144.145" y="80.01" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="144.145" y1="80.01" x2="149.225" y2="80.01" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="59.055" y="80.01" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="59.055" y1="80.01" x2="149.225" y2="80.01" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="SOC1" gate="G$1" pin="IO1(TXD0)"/>
 </segment>
 <segment>
@@ -5707,9 +5704,9 @@ internal 3.3V LDO bypassed</text>
 <pinref part="Q2" gate="G$1" pin="E"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="66.04" y1="44.45" x2="63.5" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="63.5" y1="44.45" x2="59.69" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="63.5" y1="44.45" x2="59.055" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <junction x="63.5" y="44.45" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<label x="59.69" y="44.45" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="59.055" y="44.45" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="DTR"/>
@@ -5733,9 +5730,9 @@ internal 3.3V LDO bypassed</text>
 <pinref part="Q2" gate="G$1" pin="B"/>
 <wire x1="90.17" y1="20.955" x2="83.82" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <wire x1="83.82" y1="20.955" x2="83.82" y2="24.765" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="83.82" y1="20.955" x2="59.69" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="83.82" y1="20.955" x2="59.055" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <junction x="83.82" y="20.955" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<label x="59.69" y="20.955" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="59.055" y="20.955" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 </segment>
 </net>
 <net name="N$7" class="0">
