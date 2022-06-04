@@ -36,7 +36,7 @@ All tests and validations were performed with the following circuit:
 
 As shown in the schematic above, the target bMSP430 used for testing is an [MSP430FR4133](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/1.%20Datasheets/MSP430%20BSL/Datasheet%20-%20MSP430FR413x%20Mixed-Signal%20Microcontrollers%20(Rev.%20F).pdf).In order to have a clear visual representation of whether or not the target firmware has been updated, two firmware versions have been pre-compiled: [Slow_Blinky](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Firmware/BSL_FR4133/Precompiled%20Firmware/Slow_Blinky.txt) and [Fast_Blinky](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Firmware/BSL_FR4133/Precompiled%20Firmware/Fast_Blinky.txt).
 
-The source code used to produce these files can be viewed below and [accessed here](https://github.com/TiagoPaulaSilva/DrizzlingBytes/tree/main/Firmware/BSL_FR4133)
+The source code used to produce these files can be viewed below and the entire project structure is [available here](https://github.com/TiagoPaulaSilva/DrizzlingBytes/tree/main/Firmware/BSL_FR4133), [Code Composer Studio](https://www.ti.com/tool/CCSTUDIO) was used has an IDE.
 
 ```c
 #include <msp430.h>
