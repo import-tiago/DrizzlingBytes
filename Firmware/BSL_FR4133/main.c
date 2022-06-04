@@ -4,7 +4,7 @@
 #define SLOW 1000000
 #define LED BIT7
 
-int main(void) {
+void main(void) {
     WDTCTL = WDTPW | WDTHOLD;
 
     P2OUT &= ~LED;
