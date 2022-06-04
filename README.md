@@ -73,6 +73,10 @@ If all goes well, the communication between HOST and TARGET can be seen through 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/ESP32_Tx.png" ></p>
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/ESP32_Rx.png" ></p>
 
+Organizing and synchronizing the submissions and responses between the parties for better visualization, we have:
+
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/UARTCommunicationSync.png" ></p>
+
 The assembled circuit used for the tests:
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Breadboard.png" ></p>
