@@ -61,3 +61,5 @@ int main(void) {
 ```
 
 The version that makes the LED blink slowly was flashed to the MCU and the version that makes it blink faster was uploaded in Firebase Storage. That way, if the ESP32 is able to successfully download and update the target, it will be easily noticeable by the blinky frequency of the LED.
+
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/FirebaseStorage.png" width="80%" height="80%"></p>
