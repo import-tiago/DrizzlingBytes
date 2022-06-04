@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"*.ulp": "cpp",
+		"*.tcc": "cpp",
+		"array": "cpp",
+		"initializer_list": "cpp",
+		"utility": "cpp",
+		"random": "cpp",
+		"string": "cpp"
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
+}
