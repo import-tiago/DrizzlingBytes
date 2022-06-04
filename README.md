@@ -2,7 +2,7 @@ DrizzlingBytes is a way to provide over-the-air (OTA) device firmware update (DF
 
 In this implementation, an ESP32 (SoC) acts as a Hosting Device, managing and downloading new firmware available from Firebase Storage and then programming the target MSP430 (MCU).
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Overview.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Overview.png" ></p>
 
 Access to the target's embedded memory is via the Bootstrap Loader (BSL), sometimes just called a "bootloader", available natively on MSP430 microcontrollers.
 
@@ -12,27 +12,27 @@ Briefly, the process is as follows:
 
 Put the MSP430 in Bootstrap Loader mode by the following invocation process:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLModeInvocation.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLModeInvocation.png" ></p>
 
 From this point, the target is ready to communicate with the host. There are two ways to do this: from I2C or UART protocols. In this case, UART is the choice. The necessary settings for the peripheral are:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLUARTSettings.png" width="25%" height="25%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLUARTSettings.png" ></p>
 
 And then writing the BSL commands as needed. The possibilities are:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLCommandsList.png" width="70%" height="70%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLCommandsList.png" ></p>
 
 All commands must be transmitted according to the BSL protocol shown below:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLProtocol.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLProtocol.png" ></p>
 
 Then, after performing the desired memory accesses, set the target to normal mode operation again, exiting BSL mode:
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/NormalModeInvocation.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/NormalModeInvocation.png" ></p>
 
 All tests and validations were performed with the following circuit:
 
-<p align="center"><a href="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/0.%20Project/DrizzlingBytes/DrizzlingBytes.pdf"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png" width="100%" height="100%" title="Schematic Preview" alt="PDF Download"></a></p>
+<p align="center"><a href="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/0.%20Project/DrizzlingBytes/DrizzlingBytes.pdf"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png"  title="Schematic Preview" alt="PDF Download"></a></p>
 
 As shown in the schematic above, the target bMSP430 used for testing is an [MSP430FR4133](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/1.%20Datasheets/MSP430%20BSL/Datasheet%20-%20MSP430FR413x%20Mixed-Signal%20Microcontrollers%20(Rev.%20F).pdf). In order to have a clear visual representation of whether or not the target firmware has been updated, two firmware versions have been pre-compiled: [Slow_Blinky](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Firmware/BSL_FR4133/Precompiled%20Firmware/Slow_Blinky.txt) and [Fast_Blinky](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Firmware/BSL_FR4133/Precompiled%20Firmware/Fast_Blinky.txt).
 
@@ -45,7 +45,7 @@ The source code used to produce these files can be viewed below and the entire p
 #define SLOW 1000000
 #define LED BIT7
 
-int main(void) {
+void main(void) {
     WDTCTL = WDTPW | WDTHOLD;
 
     P2OUT &= ~LED;
@@ -62,4 +62,4 @@ int main(void) {
 
 The version that makes the LED blink slowly was flashed to the MCU and the version that makes it blink faster was uploaded in Firebase Storage. That way, if the ESP32 is able to successfully download and update the target, it will be easily noticeable by the blinky frequency of the LED.
 
-<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/FirebaseStorage.png" width="80%" height="80%"></p>
+<p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/FirebaseStorage.png" ></p>
