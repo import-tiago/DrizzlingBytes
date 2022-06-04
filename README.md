@@ -76,3 +76,13 @@ If all goes well, the communication between HOST and TARGET can be seen through 
 The assembled circuit used for the tests:
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Breadboard.png" ></p>
+
+### Contributing
+0. Give this project a :star:
+1. Create an issue and describe your idea.
+2. [Fork it](https://github.com/TiagoPaulaSilva/DrizzlingBytes/fork).
+3. Create your feature branch (`git checkout -b my-new-feature`).
+4. Commit your changes (`git commit -a -m "Added feature title"`).
+5. Publish the branch (`git push origin my-new-feature`).
+6. Create a new pull request.
+7. Done! :heavy_check_mark:
