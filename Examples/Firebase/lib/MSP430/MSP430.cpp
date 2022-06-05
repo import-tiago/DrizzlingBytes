@@ -4,24 +4,19 @@
 #include "WiFi_Secrets.h"
 #include "Firebase_Secrets.h"
 #include "Cloud.h"
-
-#include <FS.h>
 #include <SPIFFS.h>
 
-fs::File file;
+File Read_File;
 
 #define UART_BUFFER_SIZE 300
 
-
 char sendBuffer[UART_BUFFER_SIZE] = { 0 };
 char receiveBuffer[UART_BUFFER_SIZE] = { 0 };
-
 unsigned long fram_address[MAX_MSP430_MEMORY_SECTIONS];
 unsigned long fram_length_of_sections[MAX_MSP430_MEMORY_SECTIONS];
 unsigned long fram_sections;
-
-unsigned char firmware[FRAM_SIZE];
 unsigned long section[MAX_MSP430_MEMORY_SECTIONS][3];
+unsigned char firmware[FIRMWARE_SIZE];
 
 //***************************************
 // BSL COMMANDS
@@ -73,7 +68,7 @@ unsigned long section[MAX_MSP430_MEMORY_SECTIONS][3];
 
 #define MAX_UART_BSL_BUFFER_SIZE 200
 
-void MSP430_BSL::Invoke_MSP_Normal_Mode_Operation() {
+void MSP430::Invoke_MSP_Normal_Mode_Operation() {
 
 	digitalWrite(TEST_PIN, LOW);
 	digitalWrite(RESET_PIN, HIGH);
@@ -85,7 +80,7 @@ void MSP430_BSL::Invoke_MSP_Normal_Mode_Operation() {
 	delayMicroseconds(100);
 }
 
-void MSP430_BSL::Invoke_MSP_BSL_Mode_Operation() {
+void MSP430::Invoke_MSP_BSL_Mode_Operation() {
 
 	Serial.println("Invoking BSL by hardware entry sequence...");
 
@@ -111,7 +106,7 @@ void MSP430_BSL::Invoke_MSP_BSL_Mode_Operation() {
 	delay(200);
 }
 
-bool MSP430_BSL::Write_Default_Password() {
+bool MSP430::Write_Default_Password() {
 
 	bool result = false;
 	unsigned int checksum = 0;
@@ -171,7 +166,7 @@ bool MSP430_BSL::Write_Default_Password() {
 	return result;
 }
 
-unsigned int MSP430_BSL::Checksum(char* data, unsigned int length) {
+unsigned int MSP430::Checksum(char* data, unsigned int length) {
 
 	char x;
 	unsigned int crc = 0xFFFF;
@@ -185,7 +180,7 @@ unsigned int MSP430_BSL::Checksum(char* data, unsigned int length) {
 	return crc;
 }
 
-bool MSP430_BSL::Write_Firmware() {
+bool MSP430::Write_Firmware() {
 
 	bool numberOfErrors = 0;
 	bool result = true;
@@ -212,7 +207,7 @@ bool MSP430_BSL::Write_Firmware() {
 	return true;
 }
 
-bool MSP430_BSL::Send_Large_Data(unsigned long startAddress, unsigned long length, unsigned char* data) {
+bool MSP430::Send_Large_Data(unsigned long startAddress, unsigned long length, unsigned char* data) {
 
 	unsigned long currentAddress = startAddress;
 	unsigned long currentLength = length;
@@ -246,7 +241,7 @@ bool MSP430_BSL::Send_Large_Data(unsigned long startAddress, unsigned long lengt
 	return true;
 }
 
-bool MSP430_BSL::Write_Memory(unsigned long startAddress, char lenght, unsigned char* data) {
+bool MSP430::Write_Memory(unsigned long startAddress, char lenght, unsigned char* data) {
 
 	uint16_t checksum = 0;
 
@@ -299,123 +294,96 @@ bool MSP430_BSL::Write_Memory(unsigned long startAddress, char lenght, unsigned 
 	return false;
 }
 
-char  MSP430_OTA::ctoh(char data) {
+char  MSP430::ctoh(char data) {
 	if (data > '9') {
 		data += 9;
 	}
 	return (data &= 0x0F);
 }
 
-// The Firebase Storage download callback function
-void fcsDownloadCallback(FCS_DownloadStatusInfo info) {
-	if (info.status == fb_esp_fcs_download_status_init) {
-		Serial.printf("Downloading file %s (%d) to %s\n", info.remoteFileName.c_str(), info.fileSize, info.localFileName.c_str());
-	}
-	else if (info.status == fb_esp_fcs_download_status_download) {
-		Serial.printf("Downloaded %d%s\n", (int)info.progress, "%");
-	}
-	else if (info.status == fb_esp_fcs_download_status_complete) {
-		Serial.println("Download completed\n");
-	}
-	else if (info.status == fb_esp_fcs_download_status_error) {
-		Serial.printf("Download failed, %s\n", info.errorMsg.c_str());
-	}
-}
+void MSP430::Load_from_SPIFFS_and_Store_in_RAM() {
+	Read_File = SPIFFS.open(SPIFFS_Firmware_Address, "r");
 
-void MSP430_OTA::Download_Firmware() {
+#define MAX_MEMORY_LENGTH 4
+	unsigned int sections_count = 0;
+	unsigned long memory_address[MAX_MSP430_MEMORY_SECTIONS];
+	char address[MAX_MEMORY_LENGTH + 1] = { 0 };
+	unsigned long i = 0;
+	unsigned char _byte = 0;
 
-	if (Firebase.ready() && !taskCompleted) {
-		taskCompleted = true;
+	while (Read_File.available()) {
 
-		Serial.println("\nPreparing download...\n");
-		if (!Firebase.Storage.download(&fbdo, STORAGE_BUCKET_ID, CLOUD_FIRMWARE_ADDRESS, LOCAL_FLASH_ADDRESS, mem_storage_type_flash, fcsDownloadCallback)) {
-			Serial.println(fbdo.errorReason());
-			ESP.restart();
-		}
+		_byte = (char)Read_File.read();
 
-		file = DEFAULT_FLASH_FS.open(LOCAL_FLASH_ADDRESS, "r");
+		if (_byte != ' ' && _byte != '\r' && _byte != '\n') {
 
-	#define MAX_MEMORY_LENGTH 4
-		unsigned int sections_count = 0;
-		unsigned long memory_address[MAX_MSP430_MEMORY_SECTIONS];
-		char address[MAX_MEMORY_LENGTH + 1] = { 0 };
-		unsigned long i = 0;
-		unsigned char _byte = 0;
+			if (_byte == '@') {
 
-		while (file.available()) {
+				address[0] = (char)Read_File.read();
+				address[1] = (char)Read_File.read();
+				address[2] = (char)Read_File.read();
+				address[3] = (char)Read_File.read();
+				address[4] = '\0';
 
-			_byte = (char)file.read();
+				memory_address[sections_count] = strtol(address, NULL, 16);
 
-			if (_byte != ' ' && _byte != '\r' && _byte != '\n') {
+				section[sections_count][0] = i; //INIT INDEX of section
 
-				if (_byte == '@') {
-
-					address[0] = (char)file.read();
-					address[1] = (char)file.read();
-					address[2] = (char)file.read();
-					address[3] = (char)file.read();
-					address[4] = '\0';
-
-					memory_address[sections_count] = strtol(address, NULL, 16);
-
-					section[sections_count][0] = i; //INIT INDEX of section
-
-					if (sections_count > 0) {
-						section[sections_count - 1][1] = section[sections_count][0] - 1; //END INDEX of section
-						section[sections_count - 1][2] = section[sections_count - 1][1] - section[sections_count - 1][0] + 1; //LENGTH (in bytes) of section
-					}
-					sections_count++;
+				if (sections_count > 0) {
+					section[sections_count - 1][1] = section[sections_count][0] - 1; //END INDEX of section
+					section[sections_count - 1][2] = section[sections_count - 1][1] - section[sections_count - 1][0] + 1; //LENGTH (in bytes) of section
 				}
-				else {
-					char msb = ctoh(_byte);
-					char lsb = ctoh((char)file.read());
-					firmware[i++] = (unsigned char)((msb << 4) | lsb);
-				}
+				sections_count++;
+			}
+			else {
+				char msb = ctoh(_byte);
+				char lsb = ctoh((char)Read_File.read());
+				firmware[i++] = (unsigned char)((msb << 4) | lsb);
 			}
 		}
-
-		file.close();
-
-		for (int z = 0; z < 150; z++) {
-			Serial.println(firmware[z], HEX);
-		}
-		Serial.println("----------------");
-
-		Serial.printf("exit: %d\r\n", sections_count);
-		Serial.println(i);
-		section[sections_count - 1][1] = i - 2; //END INDEX of section
-		section[sections_count - 1][2] = section[sections_count - 1][1] - section[sections_count - 1][0] + 1; //LENGTH (in bytes) of section
-
-		for (int _i = 0; _i < sections_count; _i++) {
-			Serial.printf("Section %d: %#lX\r\n", _i, memory_address[_i]);
-			fram_address[_i] = memory_address[_i];
-		}
-
-		Serial.printf("Total memory section: %d\r\n", sections_count);
-		fram_sections = sections_count;
-
-		Serial.print("\r\nINIT: ");
-		Serial.println(section[0][0]);
-		Serial.print("END: ");
-		Serial.println(section[0][1]);
-		Serial.print("LENGTH: ");
-		Serial.println(section[0][2]);
-
-		Serial.print("INIT: ");
-		Serial.println(section[1][0]);
-		Serial.print("END: ");
-		Serial.println(section[1][1]);
-		Serial.print("LENGTH: ");
-		Serial.println(section[1][2]);
-
-		Serial.print("INIT: ");
-		Serial.println(section[2][0]);
-		Serial.print("END: ");
-		Serial.println(section[2][1]);
-		Serial.print("LENGTH: ");
-		Serial.println(section[2][2]);
-
-		for (int _i = 0; _i < sections_count; _i++)
-			fram_length_of_sections[_i] = section[_i][2];
 	}
+
+	Read_File.close();
+
+	for (int z = 0; z < 150; z++) {
+		Serial.println(firmware[z], HEX);
+	}
+	Serial.println("----------------");
+
+	Serial.printf("exit: %d\r\n", sections_count);
+	Serial.println(i);
+	section[sections_count - 1][1] = i - 2; //END INDEX of section
+	section[sections_count - 1][2] = section[sections_count - 1][1] - section[sections_count - 1][0] + 1; //LENGTH (in bytes) of section
+
+	for (int _i = 0; _i < sections_count; _i++) {
+		Serial.printf("Section %d: %#lX\r\n", _i, memory_address[_i]);
+		fram_address[_i] = memory_address[_i];
+	}
+
+	Serial.printf("Total memory section: %d\r\n", sections_count);
+	fram_sections = sections_count;
+
+	Serial.print("\r\nINIT: ");
+	Serial.println(section[0][0]);
+	Serial.print("END: ");
+	Serial.println(section[0][1]);
+	Serial.print("LENGTH: ");
+	Serial.println(section[0][2]);
+
+	Serial.print("INIT: ");
+	Serial.println(section[1][0]);
+	Serial.print("END: ");
+	Serial.println(section[1][1]);
+	Serial.print("LENGTH: ");
+	Serial.println(section[1][2]);
+
+	Serial.print("INIT: ");
+	Serial.println(section[2][0]);
+	Serial.print("END: ");
+	Serial.println(section[2][1]);
+	Serial.print("LENGTH: ");
+	Serial.println(section[2][2]);
+
+	for (int _i = 0; _i < sections_count; _i++)
+		fram_length_of_sections[_i] = section[_i][2];
 }
