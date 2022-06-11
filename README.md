@@ -32,7 +32,7 @@ Then, after performing the desired memory accesses, set the target to normal mod
 
 All tests and validations were performed with the following circuit:
 
-<p align="center"><a href="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/0.%20Project/DrizzlingBytes/DrizzlingBytes.pdf"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png"  title="Schematic Preview" alt="PDF Download"></a></p>
+<p align="center"><a href="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/0.%20Project/DrizzlingBytes.pdf"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/SchematicPreview.png"  title="Schematic Preview" alt="PDF Download"></a></p>
 
 As shown in the schematic above, the target MSP430 used for testing is an [MSP430FR4133](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Hardware/1.%20Datasheets/MSP430%20BSL/Datasheet%20-%20MSP430FR413x%20Mixed-Signal%20Microcontrollers%20(Rev.%20F).pdf). In order to have a clear visual representation of whether or not the target firmware has been updated, two firmware versions have been pre-compiled: [Slow_Blinky](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Precompiled%20Firmware/Slow_Blinky/firmware.txt) and [Fast_Blinky](https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Precompiled%20Firmware/Fast_Blinky/firmware.txt).
 
