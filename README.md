@@ -68,7 +68,7 @@ Once the circuit is powered up, the ESP32 downloads the firmware from Firebase a
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/BSLInvocationSignals.png" ></p>
 
-If all goes well, the communication between HOST and TARGET can be seen through the UART ([Dockligth](https://docklight.de/) used as serial terminal):
+If all goes well, the communication between HOST and TARGET can be seen through the UART ([Docklight](https://docklight.de/) used as serial terminal):
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/ESP32_Tx.png" ></p>
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/ESP32_Rx.png" ></p>
