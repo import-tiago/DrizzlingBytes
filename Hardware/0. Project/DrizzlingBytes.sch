@@ -4295,6 +4295,9 @@ Source: &lt;a href="http://www.ti.com/lit/gpn/msp430fr4133"&gt; Datasheet &lt;/a
 <vertex x="85.3663" y="25.74"/>
 </polygon>
 </symbol>
+<symbol name="LETTER_P" urn="urn:adsk.eagle:symbol:35797722/1" library_version="17">
+<frame x1="0" y1="0" x2="185.42" y2="248.92" columns="12" rows="17" layer="94" border-left="no" border-top="no" border-right="no" border-bottom="no"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DINA3_L" urn="urn:adsk.eagle:component:35797788/8" prefix="FRAME" uservalue="yes" library_version="17">
@@ -4303,6 +4306,21 @@ DIN A3, landscape with extra doc field</description>
 <gates>
 <gate name="G$1" symbol="DINA3_L" x="0" y="0"/>
 <gate name="G$2" symbol="FOOTER-OSHW" x="287.02" y="0" addlevel="must"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LETTER_P" urn="urn:adsk.eagle:component:35797780/8" prefix="FRAME" uservalue="yes" library_version="17">
+<description>&lt;b&gt;FRAME&lt;/b&gt;&lt;p&gt;
+LETTER portrait</description>
+<gates>
+<gate name="G$1" symbol="LETTER_P" x="0" y="0"/>
+<gate name="G$2" symbol="FOOTER-OSHW" x="83.82" y="0" addlevel="must"/>
 </gates>
 <devices>
 <device name="">
@@ -5096,7 +5114,7 @@ Matte Tin (Sn) Plating, 2 Circuits</description>
 <attribute name="AUTHOR" value="Tiago Silva"/>
 <attribute name="IGNORE_RENUMBER" value="TP"/>
 <attribute name="SOURCE" value="github.com/TiagoPaulaSilva/DrizzlingBytes"/>
-<attribute name="VERSION" value="v1.0"/>
+<attribute name="VERSION" value="v1.1"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -5171,6 +5189,7 @@ Matte Tin (Sn) Plating, 2 Circuits</description>
 <part name="C17" library="My-RLC" library_urn="urn:adsk.eagle:library:35509816" deviceset="C_" device="0402" package3d_urn="urn:adsk.eagle:package:35509986/1" value="100nF x 50V"/>
 <part name="SUPPLY10" library="My-Supply" library_urn="urn:adsk.eagle:library:35531236" deviceset="VBUS" device=""/>
 <part name="SUPPLY4" library="My-Supply" library_urn="urn:adsk.eagle:library:35531236" deviceset="VBUS" device=""/>
+<part name="FRAME2" library="My-Frames" library_urn="urn:adsk.eagle:library:35797712" deviceset="LETTER_P" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5216,11 +5235,11 @@ Technical Reference Manual v4.6</text>
 <wire x1="106.045" y1="176.53" x2="106.045" y2="216.535" width="0.1524" layer="137" style="shortdash" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE"/>
 <text x="125.73" y="213.36" size="1.27" layer="137" align="center" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE">USB Self-Powered mode with
 internal 3.3V LDO bypassed</text>
-<wire x1="43.18" y1="86.995" x2="124.46" y2="86.995" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="43.815" y1="86.995" x2="124.46" y2="86.995" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <wire x1="124.46" y1="86.995" x2="124.46" y2="12.065" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="43.18" y1="12.065" x2="43.18" y2="86.995" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="43.815" y1="12.065" x2="43.815" y2="86.995" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <text x="81.28" y="88.9" size="2.54" layer="137" font="vector" align="center" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">Serial Bootloader Programmer Interface</text>
-<wire x1="43.18" y1="12.065" x2="124.46" y2="12.065" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="43.815" y1="12.065" x2="124.46" y2="12.065" width="0.1524" layer="137" style="shortdash" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <wire x1="173.355" y1="87.63" x2="180.975" y2="87.63" width="0.1016" layer="135" style="shortdash"/>
 <wire x1="180.975" y1="87.63" x2="180.975" y2="82.55" width="0.1016" layer="135" style="shortdash"/>
 <wire x1="180.975" y1="82.55" x2="173.355" y2="82.55" width="0.1016" layer="135" style="shortdash"/>
@@ -5277,27 +5296,27 @@ internal 3.3V LDO bypassed</text>
 <attribute name="NAME" x="97.2185" y="197.5612" size="1.27" layer="95" rot="MR270" align="center"/>
 <attribute name="VALUE" x="103.505" y="197.5866" size="1.27" layer="96" rot="MR270" align="center"/>
 </instance>
-<instance part="SUPPLY20" gate="G$1" x="83.82" y="70.485" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
-<attribute name="VALUE" x="83.8454" y="74.295" size="1.778" layer="96" align="center"/>
+<instance part="SUPPLY20" gate="G$1" x="76.835" y="71.12" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
+<attribute name="VALUE" x="76.8604" y="74.93" size="1.778" layer="96" align="center"/>
 </instance>
 <instance part="SUPPLY19" gate="G$1" x="95.25" y="70.485" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
 <attribute name="VALUE" x="95.2754" y="74.295" size="1.778" layer="96" align="center"/>
 </instance>
-<instance part="R5" gate="G$1" x="83.82" y="59.69" smashed="yes" rot="MR270" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
-<attribute name="NAME" x="81.6864" y="59.69" size="1.27" layer="95" rot="MR270" align="center"/>
-<attribute name="VALUE" x="85.725" y="59.69" size="1.27" layer="96" rot="MR270" align="center"/>
+<instance part="R5" gate="G$1" x="76.835" y="60.325" smashed="yes" rot="MR270" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
+<attribute name="NAME" x="74.7014" y="60.325" size="1.27" layer="95" rot="MR270" align="center"/>
+<attribute name="VALUE" x="78.74" y="60.325" size="1.27" layer="96" rot="MR270" align="center"/>
 </instance>
 <instance part="R7" gate="G$1" x="95.25" y="59.69" smashed="yes" rot="MR270" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
 <attribute name="NAME" x="93.1164" y="59.69" size="1.27" layer="95" rot="MR270" align="center"/>
 <attribute name="VALUE" x="97.155" y="59.69" size="1.27" layer="96" rot="MR270" align="center"/>
 </instance>
-<instance part="R2" gate="G$1" x="71.12" y="44.45" smashed="yes" rot="MR0" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
-<attribute name="NAME" x="71.12" y="46.5836" size="1.27" layer="95" rot="MR0" align="center"/>
-<attribute name="VALUE" x="71.12" y="42.545" size="1.27" layer="96" rot="MR0" align="center"/>
+<instance part="R2" gate="G$1" x="65.405" y="45.085" smashed="yes" rot="MR0" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
+<attribute name="NAME" x="65.405" y="47.2186" size="1.27" layer="95" rot="MR0" align="center"/>
+<attribute name="VALUE" x="65.405" y="43.18" size="1.27" layer="96" rot="MR0" align="center"/>
 </instance>
-<instance part="R6" gate="G$1" x="83.82" y="29.845" smashed="yes" rot="R90" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
-<attribute name="NAME" x="81.6864" y="29.845" size="1.27" layer="95" rot="R90" align="center"/>
-<attribute name="VALUE" x="85.725" y="29.845" size="1.27" layer="96" rot="R90" align="center"/>
+<instance part="R6" gate="G$1" x="83.82" y="20.955" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
+<attribute name="NAME" x="83.82" y="23.0886" size="1.27" layer="95" align="center"/>
+<attribute name="VALUE" x="83.82" y="19.05" size="1.27" layer="96" align="center"/>
 </instance>
 <instance part="U1" gate="G$1" x="161.925" y="203.835" smashed="yes" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE">
 <attribute name="NAME" x="146.685" y="229.87" size="1.778" layer="95"/>
@@ -5307,9 +5326,9 @@ internal 3.3V LDO bypassed</text>
 <attribute name="NAME" x="65.405" y="230.505" size="1.27" layer="95" rot="R90" align="center"/>
 <attribute name="FAMILY" x="70.104" y="230.505" size="1.27" layer="96" rot="R90" align="center"/>
 </instance>
-<instance part="Q1" gate="G$1" x="81.28" y="44.45" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
-<attribute name="NAME" x="85.344" y="44.704" size="1.778" layer="95"/>
-<attribute name="FAMILY" x="85.344" y="42.799" size="1.27" layer="96"/>
+<instance part="Q1" gate="G$1" x="74.295" y="45.085" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
+<attribute name="NAME" x="78.359" y="45.339" size="1.778" layer="95"/>
+<attribute name="FAMILY" x="78.359" y="43.434" size="1.27" layer="96"/>
 </instance>
 <instance part="Q2" gate="G$1" x="92.71" y="20.955" smashed="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE">
 <attribute name="NAME" x="96.774" y="21.209" size="1.778" layer="95"/>
@@ -5451,7 +5470,7 @@ internal 3.3V LDO bypassed</text>
 </segment>
 <segment>
 <pinref part="SUPPLY20" gate="G$1" pin="3.3V"/>
-<wire x1="83.82" y1="67.945" x2="83.82" y2="64.77" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="76.835" y1="68.58" x2="76.835" y2="65.405" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 </segment>
 <segment>
@@ -5625,13 +5644,13 @@ internal 3.3V LDO bypassed</text>
 </net>
 <net name="ESP32_PROG_ENABLE" class="0">
 <segment>
-<wire x1="83.82" y1="49.53" x2="83.82" y2="52.07" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="76.835" y1="50.165" x2="76.835" y2="52.705" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="Q1" gate="G$1" pin="C"/>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="54.61" x2="83.82" y2="52.07" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<junction x="83.82" y="52.07" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="76.835" y1="55.245" x2="76.835" y2="52.705" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<junction x="76.835" y="52.705" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="SOC1" gate="G$1" pin="EN"/>
-<wire x1="149.225" y1="52.07" x2="83.82" y2="52.07" width="0.1524" layer="91"/>
+<wire x1="149.225" y1="52.07" x2="76.835" y2="52.705" width="0.1524" layer="91"/>
 <label x="99.695" y="52.705" size="1.27" layer="95"/>
 </segment>
 </net>
@@ -5649,8 +5668,8 @@ internal 3.3V LDO bypassed</text>
 </net>
 <net name="USB_TX" class="0">
 <segment>
-<label x="59.055" y="77.47" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="59.055" y1="77.47" x2="149.225" y2="77.47" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="55.88" y="77.47" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="55.88" y1="77.47" x2="149.225" y2="77.47" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="SOC1" gate="G$1" pin="IO3(RXD0)"/>
 </segment>
 <segment>
@@ -5661,8 +5680,8 @@ internal 3.3V LDO bypassed</text>
 </net>
 <net name="USB_RX" class="0">
 <segment>
-<label x="59.055" y="80.01" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="59.055" y1="80.01" x2="149.225" y2="80.01" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="55.88" y="80.01" size="1.27" layer="95" ratio="5" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="55.88" y1="80.01" x2="149.225" y2="80.01" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="SOC1" gate="G$1" pin="IO1(TXD0)"/>
 </segment>
 <segment>
@@ -5699,14 +5718,14 @@ internal 3.3V LDO bypassed</text>
 <net name="USB_DTR" class="0">
 <segment>
 <wire x1="95.25" y1="15.875" x2="95.25" y2="14.605" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="95.25" y1="14.605" x2="63.5" y2="14.605" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="63.5" y1="14.605" x2="63.5" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="95.25" y1="14.605" x2="58.42" y2="14.605" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="58.42" y1="14.605" x2="58.42" y2="45.085" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="Q2" gate="G$1" pin="E"/>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="66.04" y1="44.45" x2="63.5" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="63.5" y1="44.45" x2="59.055" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<junction x="63.5" y="44.45" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<label x="59.055" y="44.45" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="60.325" y1="45.085" x2="58.42" y2="45.085" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="58.42" y1="45.085" x2="55.88" y2="45.085" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<junction x="58.42" y="45.085" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="55.88" y="45.085" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="DTR"/>
@@ -5716,28 +5735,23 @@ internal 3.3V LDO bypassed</text>
 </net>
 <net name="USB_RTS" class="0">
 <segment>
-<wire x1="83.82" y1="39.37" x2="83.82" y2="34.925" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<pinref part="R6" gate="G$1" pin="2"/>
-<pinref part="Q1" gate="G$1" pin="E"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="RTS"/>
 <wire x1="182.245" y1="189.865" x2="184.785" y2="189.865" width="0.1524" layer="91" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE"/>
 <label x="184.785" y="189.865" size="1.27" layer="95" xref="yes" grouprefs="USB_COMPUTER_TO_SERIAL_UART_INTERFACE"/>
 </segment>
 <segment>
+<wire x1="78.74" y1="20.955" x2="76.835" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<label x="55.88" y="20.955" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<pinref part="Q2" gate="G$1" pin="B"/>
-<wire x1="90.17" y1="20.955" x2="83.82" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="83.82" y1="20.955" x2="83.82" y2="24.765" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<wire x1="83.82" y1="20.955" x2="59.055" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<junction x="83.82" y="20.955" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
-<label x="59.055" y="20.955" size="1.27" layer="95" rot="R180" xref="yes" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<pinref part="Q1" gate="G$1" pin="E"/>
+<wire x1="76.835" y1="20.955" x2="55.88" y2="20.955" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="76.835" y1="40.005" x2="76.835" y2="20.955" width="0.1524" layer="91"/>
+<junction x="76.835" y="20.955"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
-<wire x1="76.2" y1="44.45" x2="78.74" y2="44.45" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
+<wire x1="70.485" y1="45.085" x2="71.755" y2="45.085" width="0.1524" layer="91" grouprefs="HOST_MCU_AND_WIFI_INTERFACE"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <pinref part="Q1" gate="G$1" pin="B"/>
 </segment>
@@ -5875,6 +5889,36 @@ internal 3.3V LDO bypassed</text>
 <junction x="48.895" y="152.4" grouprefs="POWER_SUPPLY"/>
 </segment>
 </net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<pinref part="Q2" gate="G$1" pin="B"/>
+<wire x1="88.9" y1="20.955" x2="90.17" y2="20.955" width="0.1524" layer="91"/>
+</segment>
+</net>
+</nets>
+</sheet>
+<sheet>
+<description>RELEASE NOTES</description>
+<plain>
+<text x="5.715" y="238.125" size="3.81" layer="97" font="vector">v1.0 - Initial Release</text>
+<text x="5.08" y="231.775" size="3.81" layer="97" font="vector">V1.1 - BUG fix: changed R6 position to protects Q2 BJT's base.</text>
+</plain>
+<instances>
+<instance part="FRAME2" gate="G$1" x="0.635" y="0" smashed="yes"/>
+<instance part="FRAME2" gate="G$2" x="84.455" y="0" smashed="yes">
+<attribute name="LAST_DATE_TIME" x="97.155" y="1.27" size="2.54" layer="94"/>
+<attribute name="SHEET" x="177.8" y="6.35" size="2.54" layer="94"/>
+<attribute name="DRAWING_NAME" x="115.443" y="11.557" size="2.54" layer="94"/>
+<attribute name="SHEET_HEADLINE" x="110.617" y="6.477" size="2.54" layer="94"/>
+<attribute name="VERSION" x="173.4185" y="1.524" size="2.54" layer="94"/>
+<attribute name="AUTHOR" x="120.015" y="26.67" size="5.08" layer="94" align="center"/>
+<attribute name="SOURCE" x="120.015" y="19.939" size="2.032" layer="94" align="center"/>
+</instance>
+</instances>
+<busses>
+</busses>
+<nets>
 </nets>
 </sheet>
 </sheets>
