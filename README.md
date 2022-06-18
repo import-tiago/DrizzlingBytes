@@ -81,6 +81,34 @@ The assembled circuit used for the tests:
 
 <p align="center"><img src="https://github.com/TiagoPaulaSilva/DrizzlingBytes/blob/main/Assets/Breadboard.png" ></p>
 
+### Simplified Code Example
+This is a simplified code snippet to show the main functions of the MSP430 library from the Drizzling Bytes project. Check the [/Examples](https://github.com/TiagoPaulaSilva/DrizzlingBytes/tree/main/Examples/) directory for a complete implementation.
+```cpp
+#define CLOUD_FIRMWARE_ADDRESS "new/firmware.txt"
+#define SPIFFS_FIRMWARE_ADDRESS "download/firmware.txt"
+
+MSP430 BSL(ESP32_GPIO_RESET_PIN, ESP32_GPIO_TEST_PIN, Serial2, SPIFFS_FIRMWARE_ADDRESS);
+
+FirebaseStorage OTA(STORAGE_BUCKET_ADDRESS, FIREBASE_FIRMWARE_ADDRESS, SPIFFS_FIRMWARE_ADDRESS);
+
+void loop() {
+
+	OTA.Download_Firmware_and_Store_in_SPIFFS();
+
+	BSL.Load_from_SPIFFS_and_Store_in_RAM();
+
+	BSL.Invoke_MSP_BSL_Mode_Operation();
+
+	BSL.Write_Default_Password();
+
+	BSL.Write_Firmware();
+
+	BSL.Invoke_MSP_Normal_Mode_Operation();
+
+	while (1);
+}
+```
+
 ### Contributing
 0. Give this project a :star:
 1. Create an issue and describe your idea.
