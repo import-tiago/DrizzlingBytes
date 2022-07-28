@@ -5,7 +5,7 @@
 
 /*
  *	v1.0 - Initial release.
- *	v1.1 - Flush RX UART buffer (MSP430 bytes) to allow multiple sequential OTA updates.
+ *	v1.1 - Flush RX UART buffer (MSP430 received bytes) before each transmission to allow multiple sequential OTA updates.
  */
 
 #include "Arduino.h"
