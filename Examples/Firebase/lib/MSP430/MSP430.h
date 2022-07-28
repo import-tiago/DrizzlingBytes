@@ -1,10 +1,11 @@
 #ifndef MSP430_BSL_H
 #define MSP430_BSL_H
 
-#define FIRMWARE_VERSION 1.0
+#define FIRMWARE_VERSION 1.1
 
 /*
  *	v1.0 - Initial release.
+ *	v1.1 - Flush RX UART buffer (MSP430 bytes) to allow multiple sequential OTA updates.
  */
 
 #include "Arduino.h"
@@ -51,6 +52,7 @@ class MSP430 {
 	bool Send_Large_Data(unsigned long startAddress, unsigned long length, unsigned char* data);
 	bool Write_Memory(unsigned long startAddress, char lenght, unsigned char* data);
 	char ctoh(char data);
+	void BSL_UART_Flush();
 
 	public:
 	MSP430(byte RESET_PIN, byte TEST_PIN, HardwareSerial& Serial_Port, String SPIFFS_Firmware_Address) : BSL_UART(Serial_Port) {

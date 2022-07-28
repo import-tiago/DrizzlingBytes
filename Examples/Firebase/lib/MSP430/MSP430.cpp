@@ -90,17 +90,17 @@ void MSP430::Invoke_MSP_BSL_Mode_Operation() {
 
 	digitalWrite(TEST_PIN, LOW);
 	digitalWrite(RESET_PIN, LOW);
-	delay(78);
+	delay(100);
 
 	digitalWrite(TEST_PIN, HIGH);
-	delay(30);
+	delay(50);
 	digitalWrite(TEST_PIN, LOW);
-	delay(30);
+	delay(50);
 
 	digitalWrite(TEST_PIN, HIGH);
-	delay(30);
+	delay(50);
 	digitalWrite(RESET_PIN, HIGH);
-	delay(30);
+	delay(50);
 	digitalWrite(TEST_PIN, LOW);
 
 	delay(200);
@@ -131,7 +131,14 @@ bool MSP430::Write_Default_Password() {
 
 	Serial.println("Sending BSL password...");
 
+	BSL_UART_Flush();
+
 	BSL_UART.write(sendBuffer, PASSWORD_LENGTH + 6);
+
+	while (BSL_UART.available() <= 0) {
+		;
+	}
+
 	BSL_UART.readBytes(receiveBuffer, 8);
 
 	Serial.println("BSL password unlock response: ");
@@ -162,6 +169,8 @@ bool MSP430::Write_Default_Password() {
 		Serial.println("BSL password is wrong!");
 		result = false;
 	}
+
+	delay(50);
 
 	return result;
 }
@@ -265,7 +274,14 @@ bool MSP430::Write_Memory(unsigned long startAddress, char lenght, unsigned char
 
 	Serial.println("Writing in memory...");
 
+	BSL_UART_Flush();
+
 	BSL_UART.write(sendBuffer, lenght + 9);
+
+	while (BSL_UART.available() <= 0) {
+		;
+	}
+
 	BSL_UART.readBytes(receiveBuffer, 8);
 
 	Serial.println("Memory write response:");
@@ -301,6 +317,12 @@ char  MSP430::ctoh(char data) {
 	return (data &= 0x0F);
 }
 
+void MSP430::BSL_UART_Flush() {
+	while (BSL_UART.available() > 0) {
+		BSL_UART.read();
+	}
+}
+
 void MSP430::Load_from_SPIFFS_and_Store_in_RAM() {
 	Read_File = SPIFFS.open(SPIFFS_Firmware_Address, "r");
 
@@ -327,11 +349,11 @@ void MSP430::Load_from_SPIFFS_and_Store_in_RAM() {
 
 				memory_address[sections_count] = strtol(address, NULL, 16);
 
-				section[sections_count][0] = i; //INIT INDEX of section
+				section[sections_count][0] = i; // INIT INDEX of section
 
 				if (sections_count > 0) {
-					section[sections_count - 1][1] = section[sections_count][0] - 1; //END INDEX of section
-					section[sections_count - 1][2] = section[sections_count - 1][1] - section[sections_count - 1][0] + 1; //LENGTH (in bytes) of section
+					section[sections_count - 1][1] = section[sections_count][0] - 1; // END INDEX of section
+					section[sections_count - 1][2] = section[sections_count - 1][1] - section[sections_count - 1][0] + 1; // LENGTH (in bytes) of section
 				}
 				sections_count++;
 			}

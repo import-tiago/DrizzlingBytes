@@ -13,7 +13,7 @@ void SPI_Flash_File_System_Init(String SPIFFS_Firmware_Address, bool format_spif
 			Serial.println("Error formatting");
 	}
 
-	if (!SPIFFS.begin()) {
+	if (!SPIFFS.begin(true)) {
 		Serial.println("SPIFFS/LittleFS initialization failed.");
 		return;
 	}
