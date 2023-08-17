@@ -82,7 +82,7 @@ The assembled circuit used for the tests:
 <p align="center"><img src="https://github.com/import-tiago/DrizzlingBytes/blob/main/Assets/Breadboard.png" ></p>
 
 ### Simplified Code Example
-This is a simplified code snippet to show the main functions of the MSP430 library from the Drizzling Bytes project. Check the [/Examples](https://github.com/import-tiago/DrizzlingBytes/tree/main/Examples/) directory for a complete implementation.
+This is a simplified code snippet to show the main functions of the MSP430 library from the Drizzling Bytes project. Check the [/Examples](https://github.com/import-tiago/DrizzlingBytes/tree/main/Example/) directory for a complete implementation.
 ```cpp
 #define CLOUD_FIRMWARE_ADDRESS "new/firmware.txt"
 #define SPIFFS_FIRMWARE_ADDRESS "download/firmware.txt"
