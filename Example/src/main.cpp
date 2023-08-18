@@ -30,12 +30,8 @@ void loop() {
 		BSL.invoke_target_bsl_mode_operation();
 
 		if (!BSL.write_default_password()) {
-			attempts--;
-
-			if (!attempts)
+			if (!--attempts)
 				break;
-
-			continue;
 		}
 
 		delay(5);
@@ -43,7 +39,6 @@ void loop() {
 		if (!BSL.write_firmware()) {
 			Serial.print("\r\nMSP430 programming failed\r\n");
 			attempts--;
-			continue;
 		}
 
 		Serial.print("\r\nMSP430 programmed successfully\r\n");
