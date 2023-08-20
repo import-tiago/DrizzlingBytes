@@ -1,11 +1,11 @@
 #include <Arduino.h>
-#include <SPIFFS.h>
 #include "msp430.h"
 
 #define MSP30_RESET_PIN 26
 #define MSP30_TEST_PIN 25
 
 MSP BSL(MSP30_RESET_PIN, MSP30_TEST_PIN, Serial2, "/target_firmware.txt");
+//MSP BSL(MSP30_RESET_PIN, MSP30_TEST_PIN, Serial2, "/target_firmware.txt", Serial); //DEBUG MODE
 
 bool upload_msp430_firmware() {
 
@@ -41,13 +41,7 @@ bool upload_msp430_firmware() {
 }
 
 void setup() {
-
     Serial.begin(115200);
-
-    if (!SPIFFS.begin(true)) {
-        Serial.println("Flash filesystem initialization failed!");
-        return;
-    }
 
     if (upload_msp430_firmware())
         Serial.print("\r\nMSP430 successfully programmed!\r\n");
@@ -55,6 +49,4 @@ void setup() {
         Serial.print("\r\nMSP430 programming failed!\r\n");
 }
 
-void loop() {
-
-}
+void loop() {}
