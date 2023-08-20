@@ -5,8 +5,7 @@
 #define MSP30_RESET_PIN 26
 #define MSP30_TEST_PIN 25
 
-//You need to ensure that the MSP430 firmware_bytes is on SPIFFS as TI-TXT format (exactly as compiled).
-MSP<Serial2> BSL(MSP30_RESET_PIN, MSP30_TEST_PIN, "/target_firmware.txt");
+MSP BSL(MSP30_RESET_PIN, MSP30_TEST_PIN, Serial2, "/target_firmware.txt");
 
 bool upload_msp430_firmware() {
 
