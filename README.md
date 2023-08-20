@@ -91,21 +91,18 @@ MSP430 BSL(ESP32_GPIO_RESET_PIN, ESP32_GPIO_TEST_PIN, Serial2, SPIFFS_FIRMWARE_A
 
 FirebaseStorage OTA(STORAGE_BUCKET_ADDRESS, FIREBASE_FIRMWARE_ADDRESS, SPIFFS_FIRMWARE_ADDRESS);
 
-void loop() {
+void setup() {
+	OTA.download_firmware_and_store_in_spiffs();
 
-	OTA.Download_Firmware_and_Store_in_SPIFFS();
+	BSL.load_firmware_from_spiffs();
 
-	BSL.Load_from_SPIFFS_and_Store_in_RAM();
+	BSL.invoke_target_bsl_mode_operation();
 
-	BSL.Invoke_MSP_BSL_Mode_Operation();
+	BSL.write_default_password();
 
-	BSL.Write_Default_Password();
+	BSL.write_firmware();
 
-	BSL.Write_Firmware();
-
-	BSL.Invoke_MSP_Normal_Mode_Operation();
-
-	while (1);
+	BSL.invoke_target_normal_mode_operation();
 }
 ```
 
